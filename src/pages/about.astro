@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+const cookies = Astro.cookies.get(
+  "superAmazingCookie2025-04-08T10:40:49.836Z"
+)?.value;
+
+if (!cookies) {
+  console.log("superAmazingCookie not found");
+  Astro.redirect("/");
+}
+const cookiesMessage = `${cookies}`;
+---
+
+<Layout>
+  Cookies Value From Server {cookiesMessage}
+  <p>You should not see this page</p>
+</Layout>
